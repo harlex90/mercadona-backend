@@ -14,7 +14,7 @@ def read_db(request):
     cursor = cnx.cursor()
 
     # Execute the query to read the table
-    cursor.execute("SELECT * FROM products")
+    cursor.execute(request)
 
     # Fetch all the rows as a list of dictionaries
     rows = [dict(zip([column[0] for column in cursor.description], row)) for row in cursor.fetchall()]
