@@ -7,11 +7,13 @@ from db import read_db
 # from auth import admin_protected
 from products import products_routes
 from promotions import promotions_routes
+from categories import categories_routes
 
 app = Flask(__name__)
 
 app.register_blueprint(products_routes)
 app.register_blueprint(promotions_routes)
+app.register_blueprint(categories_routes)
 
 @app.route("/")
 def index():
