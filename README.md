@@ -1,23 +1,9 @@
-# Installation:
-
-activate the venv:
-~~~sh
-. .venv/bin/activate
-~~~
-
-install pip modules
-~~~sh
-pip install -r requirements.txt
-~~~
-
-deactivate the venv:
-~~~sh
-deactivate
-~~~
-
 # Launch project:
+
+start docker-compose:
 ~~~sh
-python app.py
+docker compose up
 ~~~
 
-default url is: http://localhost:8080
+backend url is: http://localhost:8080
+phpmyadmin url: http://localhost:8081
