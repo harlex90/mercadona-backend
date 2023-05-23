@@ -5,13 +5,13 @@ import datetime
 import os
 
 from db import read_db
-# from auth import admin_protected
+from auth import admin_protected
 from products import products_routes
 from promotions import promotions_routes
 from categories import categories_routes
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
 app.register_blueprint(products_routes)
 app.register_blueprint(promotions_routes)
@@ -42,10 +42,10 @@ def login():
     return jsonify({'message': 'Invalid email or password'}), 401
 
 # Example route with token required
-# @app.route('/ping')
-# @admin_protected
-# def protected_route():
-#     return jsonify({'message': 'pong'})
+@app.route('/ping')
+@admin_protected
+def protected_route():
+    return jsonify({'message': 'pong'})
 
 if __name__ == "__main__":
     from waitress import serve

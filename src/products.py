@@ -8,12 +8,12 @@ from auth import admin_protected
 
 products_routes = Blueprint("products", __name__, url_prefix="/products")
 
-@products_routes.route("/")
+@products_routes.route("")
 def list_products():
     rows = read_db("SELECT * FROM products")
     return jsonify(rows)
 
-@products_routes.route('/', methods=['POST'])
+@products_routes.route('', methods=['POST'])
 @admin_protected
 def create_product():
     data = request.get_json()
@@ -27,7 +27,7 @@ def create_product():
     created_rows = update_db(insert_query, insert_data)
     return jsonify({'message': f"{created_rows} created_rows"})
 
-@products_routes.route('/<int:id>', methods=['PUT'])
+@products_routes.route('<int:id>', methods=['PUT'])
 @admin_protected
 def update_product(id):
     data = request.get_json()
@@ -51,7 +51,7 @@ def update_product(id):
 
     return jsonify({'message': f"{updated_rows} row(s) updated"})
 
-@products_routes.route('/<int:id>', methods=['DELETE'])
+@products_routes.route('<int:id>', methods=['DELETE'])
 @admin_protected
 def delete_product(id):
     delete_query = "DELETE FROM products WHERE id=%s;"
