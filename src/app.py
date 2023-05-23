@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import jwt
 import datetime
 import os
@@ -10,6 +11,7 @@ from promotions import promotions_routes
 from categories import categories_routes
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.register_blueprint(products_routes)
 app.register_blueprint(promotions_routes)
