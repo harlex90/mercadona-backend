@@ -8,18 +8,15 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE `products` (
+CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `description` text NOT NULL,
-  `price` float NOT NULL,
-  `image` text
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `products`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `products`
+ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 

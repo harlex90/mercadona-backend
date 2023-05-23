@@ -8,19 +8,18 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE TABLE `products` (
+CREATE TABLE `promotions` (
   `id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `description` text NOT NULL,
-  `price` float NOT NULL,
-  `image` text
+  `start_date` int(11) NOT NULL,
+  `end_date` int(11) NOT NULL,
+  `discount` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE `products`
+ALTER TABLE `promotions`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `promotions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
