@@ -1,3 +1,7 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -10,6 +14,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `name` text NOT NULL,
   `description` text NOT NULL,
   `price` float NOT NULL,
@@ -20,7 +25,7 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

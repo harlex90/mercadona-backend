@@ -17,12 +17,13 @@ def list_products():
 @admin_protected
 def create_product():
     data = request.get_json()
+    category_id = data.get('category_id')
     name = data.get('name')
     description = data.get('description')
     price = data.get('price')
 
-    insert_query = "INSERT INTO products (name, description, price) VALUES (%s, %s, %s)"
-    insert_data = (name, description, price)
+    insert_query = "INSERT INTO products (category_id, name, description, price) VALUES (%s, %s, %s, %s)"
+    insert_data = (category_id, name, description, price)
     created_rows = update_db(insert_query, insert_data)
     return jsonify({'message': f"{created_rows} created_rows"})
 
@@ -37,7 +38,7 @@ def update_product(id):
     update_fields = []
     update_data = []
 
-    for field in ['name', 'description', 'price']:
+    for field in ['category_id', 'name', 'description', 'price']:
         if field in data:
             update_fields.append(f"{field} = %s")
             update_data.append(data[field])
