@@ -24,3 +24,24 @@ def read_db(request):
     cnx.close()
 
     return rows
+
+def update_db(request, data):
+    # Connect to the database
+    cnx = mysql.connector.connect(**config)
+    cursor = cnx.cursor()
+
+    # Execute the query to update the table
+    cursor.execute(request, data)
+
+    # Commit the changes
+    cnx.commit()
+
+    # Get the number of affected rows
+    affected_rows = cursor.rowcount
+
+    # Close the cursor and connection
+    cursor.close()
+    cnx.close()
+
+    return affected_rows
+
