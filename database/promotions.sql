@@ -10,7 +10,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `promotions` (
   `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
   `start_date` int(11) NOT NULL,
   `end_date` int(11) NOT NULL,
   `discount` float NOT NULL
