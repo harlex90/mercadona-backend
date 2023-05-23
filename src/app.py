@@ -27,7 +27,7 @@ def login():
     password = data.get('password')
 
     # find user in db
-    users = read_db(f"SELECT * FROM `admins` WHERE email='{email}' LIMIT 1;")
+    users = read_db(f"SELECT * FROM admins WHERE email='{email}' LIMIT 1;")
     if len(users) < 1:
         return jsonify({'message': 'Invalid email or password'}), 401
     user = users[0]

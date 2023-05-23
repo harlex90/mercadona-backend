@@ -1,23 +1,24 @@
 import os
-import mysql.connector
+import psycopg2
+import psycopg2.extras
 
 config = {
-    'user': os.environ["MYSQL_USER"],
-    'password': os.environ["MYSQL_PASSWORD"],
-    'host': "mysql",
-    'database': os.environ["MYSQL_DATABASE"],
+    'user': os.environ["POSTGRES_USER"],
+    'password': os.environ["POSTGRES_PASSWORD"],
+    'host': "postgres",
+    'dbname': os.environ["POSTGRES_DB"],
 }
 
 def read_db(request):
     # Connect to the database
-    cnx = mysql.connector.connect(**config)
-    cursor = cnx.cursor()
+    cnx = psycopg2.connect(**config)
+    cursor = cnx.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
     # Execute the query to read the table
     cursor.execute(request)
 
     # Fetch all the rows as a list of dictionaries
-    rows = [dict(zip([column[0] for column in cursor.description], row)) for row in cursor.fetchall()]
+    rows = [dict(row) for row in cursor.fetchall()]
 
     # Close the cursor and connection
     cursor.close()
@@ -27,7 +28,7 @@ def read_db(request):
 
 def update_db(request, data):
     # Connect to the database
-    cnx = mysql.connector.connect(**config)
+    cnx = psycopg2.connect(**config)
     cursor = cnx.cursor()
 
     # Execute the query to update the table
@@ -44,4 +45,3 @@ def update_db(request, data):
     cnx.close()
 
     return affected_rows
-
