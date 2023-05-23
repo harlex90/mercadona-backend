@@ -1,0 +1,862 @@
+{
+	"info": {
+		"_postman_id": "208fac4c-5850-4bbe-a7f1-a4596e6f27ec",
+		"name": "Mercadona",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "categories list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Guitares\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/categories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Guitares basses\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/categories/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "categories delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/categories/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotions",
+			"item": [
+				{
+					"name": "promotions list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/promotions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 1,\n    \"start_date\": 123456,\n    \"end_date\": 123456,\n    \"discount\": 0.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/promotions",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"promotions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"discount\": 0.4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/promotions/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"promotions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "promotions delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/promotions/6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"promotions",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "products list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category_id\": 1,\n    \"name\": \"guitare verte\",\n    \"description\": \"elle est verte celle la\",\n    \"price\": 59.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category_id\": 3,\n    \"name\": \"guitare rosef\",\n    \"price\": 150.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/products/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Check if the response has a status of 200 (OK)",
+									"if (pm.response.code === 200) {",
+									"    // Parse the response JSON",
+									"    const jsonResponse = pm.response.json();",
+									"",
+									"    // Extract the JWT token from the response",
+									"    const jwtToken = jsonResponse.token;",
+									"",
+									"    // Check if the JWT token exists",
+									"    if (jwtToken) {",
+									"        // Store the JWT token in a global/environment variable",
+									"        pm.environment.set(\"jwtToken\", jwtToken);",
+									"",
+									"        // Log a success message",
+									"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+									"    } else {",
+									"        // Log an error message",
+									"        console.error('JWT token not found in the response');",
+									"    }",
+									"} else {",
+									"    // Log an error message",
+									"    console.error('Login request failed with status:', pm.response.code);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/products/6",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the response has a status of 200 (OK)",
+							"if (pm.response.code === 200) {",
+							"    // Parse the response JSON",
+							"    const jsonResponse = pm.response.json();",
+							"",
+							"    // Extract the JWT token from the response",
+							"    const jwtToken = jsonResponse.token;",
+							"",
+							"    // Check if the JWT token exists",
+							"    if (jwtToken) {",
+							"        // Store the JWT token in a global/environment variable",
+							"        pm.environment.set(\"jwtToken\", jwtToken);",
+							"",
+							"        // Log a success message",
+							"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+							"    } else {",
+							"        // Log an error message",
+							"        console.error('JWT token not found in the response');",
+							"    }",
+							"} else {",
+							"    // Log an error message",
+							"    console.error('Login request failed with status:', pm.response.code);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"soraya.gaillard@hotmail.fr\",\n    \"password\": \"abcdef\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/login",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Check if the response has a status of 200 (OK)",
+							"if (pm.response.code === 200) {",
+							"    // Parse the response JSON",
+							"    const jsonResponse = pm.response.json();",
+							"",
+							"    // Extract the JWT token from the response",
+							"    const jwtToken = jsonResponse.token;",
+							"",
+							"    // Check if the JWT token exists",
+							"    if (jwtToken) {",
+							"        // Store the JWT token in a global/environment variable",
+							"        pm.environment.set(\"jwtToken\", jwtToken);",
+							"",
+							"        // Log a success message",
+							"        console.log('JWT token successfully extracted and stored:', jwtToken);",
+							"    } else {",
+							"        // Log an error message",
+							"        console.error('JWT token not found in the response');",
+							"    }",
+							"} else {",
+							"    // Log an error message",
+							"    console.error('Login request failed with status:', pm.response.code);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/ping",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwtToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
