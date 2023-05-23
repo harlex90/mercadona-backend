@@ -5,7 +5,7 @@ import jwt
 from jwt import ExpiredSignatureError, InvalidTokenError
 
 # A decorator function to check if the JWT token is valid
-def token_required(f):
+def admin_protected(f):
 
     @wraps(f)
     def decorated(*args, **kwargs):

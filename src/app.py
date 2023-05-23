@@ -4,7 +4,7 @@ import datetime
 import os
 
 from db import read_db
-from auth import token_required
+from auth import admin_protected
 
 app = Flask(__name__)
 
@@ -14,11 +14,10 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    # Get the email and password from the request
     email = request.form.get('email')
     password = request.form.get('password')
 
-    # find the user in db
+    # find user in db
     users = read_db(f"SELECT * FROM `admins` WHERE email='{email}' LIMIT 1;")
     if len(users) < 1:
         return jsonify({'message': 'Invalid email or password'}), 401
@@ -33,18 +32,14 @@ def login():
 
 # Example route with token required
 @app.route('/ping')
-@token_required
+@admin_protected
 def protected_route():
     return jsonify({'message': 'pong'})
 
 
 @app.route("/products")
 def list_products():
-    request = "SELECT * FROM products"
-
-    rows = read_db(request)
-
-    # Return the rows as a JSON response
+    rows = read_db("SELECT * FROM products")
     return jsonify(rows)
 
 if __name__ == "__main__":
