@@ -14,15 +14,17 @@ def index():
 
 @app.route('/login', methods=['POST'])
 def login():
-    # Hardcoded email and password for now
-    valid_email = 'soraya@gaillard.io'
-    valid_password = 'abcdef'
-
     # Get the email and password from the request
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if email == valid_email and password == valid_password:
+    # find the user in db
+    users = read_db(f"SELECT * FROM `admins` WHERE email='{email}' LIMIT 1;")
+    if len(users) < 1:
+        return jsonify({'message': 'Invalid email or password'}), 401
+    user = users[0]
+
+    if email == user['email'] and password == user['password']:
         # Create a JWT token
         token = jwt.encode({'user': email, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.environ['JWT_SECRET'])
         return jsonify({'token': token})
