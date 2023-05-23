@@ -17,12 +17,13 @@ def list_promotions():
 @admin_protected
 def create_product():
     data = request.get_json()
+    product_id = data.get('product_id')
     start_date = data.get('start_date')
     end_date = data.get('end_date')
     discount = data.get('discount')
 
-    insert_query = "INSERT INTO promotions (start_date, end_date, discount) VALUES (%s, %s, %s)"
-    insert_data = (start_date, end_date, discount)
+    insert_query = "INSERT INTO promotions (product_id, start_date, end_date, discount) VALUES (%s, %s, %s, %s)"
+    insert_data = (product_id, start_date, end_date, discount)
     created_rows = update_db(insert_query, insert_data)
     return jsonify({'message': f"{created_rows} created_rows"})
 
@@ -37,7 +38,7 @@ def update_product(id):
     update_fields = []
     update_data = []
 
-    for field in ['start_date', 'end_date', 'discount']:
+    for field in ['product_id', 'start_date', 'end_date', 'discount']:
         if field in data:
             update_fields.append(f"{field} = %s")
             update_data.append(data[field])

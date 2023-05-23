@@ -10,6 +10,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `promotions` (
   `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `start_date` int(11) NOT NULL,
   `end_date` int(11) NOT NULL,
   `discount` float NOT NULL
@@ -19,7 +20,7 @@ ALTER TABLE `promotions`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `promotions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
