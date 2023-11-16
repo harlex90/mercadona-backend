@@ -13,6 +13,13 @@ def list_products():
     rows = read_db("SELECT * FROM products")
     return jsonify(rows)
 
+@products_routes.route("<int:id>")
+def show_product(id):
+    rows = read_db(f"SELECT * FROM products WHERE id = {id} LIMIT 1")
+    if len(rows) < 1:
+        return jsonify({ "error": 404 })
+    return jsonify(rows[0])
+
 @products_routes.route('', methods=['POST'])
 @admin_protected
 def create_product():

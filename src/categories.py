@@ -13,11 +13,20 @@ def list_categories():
     rows = read_db("SELECT * FROM categories")
     return jsonify(rows)
 
+@categories_routes.route("<int:id>")
+def show_product(id):
+    rows = read_db(f"SELECT * FROM categories WHERE id = {id} LIMIT 1")
+    if len(rows) < 1:
+        return jsonify({ "error": 404 })
+    return jsonify(rows[0])
+
 @categories_routes.route('', methods=['POST'])
 @admin_protected
-def create_product():
+def create_category():
     data = request.get_json()
     name = data.get('name')
+
+    
 
     insert_query = "INSERT INTO categories (name) VALUES (%s)"
     insert_data = (name,)
@@ -26,7 +35,7 @@ def create_product():
 
 @categories_routes.route('<int:id>', methods=['PUT'])
 @admin_protected
-def update_product(id):
+def update_category(id):
     data = request.get_json()
 
     if not data:
@@ -50,9 +59,16 @@ def update_product(id):
 
 @categories_routes.route('<int:id>', methods=['DELETE'])
 @admin_protected
-def delete_product(id):
-    delete_query = "DELETE FROM categories WHERE id=%s;"
-    delete_data = (id,)
-    deleted_rows = update_db(delete_query, delete_data)
-    return jsonify({'message': f"{deleted_rows} deleted_rows"})
+def delete_category(id):
+    # delete products from category
+    delete_products_query = "DELETE FROM products WHERE category_id=%s;"
+    delete_products_data = (id,)
+    deleted_products_rows = update_db(delete_products_query, delete_products_data)
+    # delete the category
+    delete_category_query = "DELETE FROM categories WHERE id=%s;"
+    delete_category_data = (id,)
+    deleted_category_rows = update_db(delete_category_query, delete_category_data)
+    return jsonify({'message': f"{deleted_category_rows} deleted_rows"})
+
+    
 

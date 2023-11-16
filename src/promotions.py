@@ -53,7 +53,7 @@ def update_product(id):
 
 @promotions_routes.route('<int:id>', methods=['DELETE'])
 @admin_protected
-def delete_product(id):
+def delete_promo(id):
     delete_query = "DELETE FROM promotions WHERE id=%s;"
     delete_data = (id,)
     deleted_rows = update_db(delete_query, delete_data)
