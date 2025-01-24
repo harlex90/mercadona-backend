@@ -70,5 +70,5 @@ def delete_category(id):
     deleted_category_rows = update_db(delete_category_query, delete_category_data)
     return jsonify({'message': f"{deleted_category_rows} deleted_rows"})
 
-    
+     
 
